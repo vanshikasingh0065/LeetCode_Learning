@@ -22,27 +22,39 @@ class Solution {
         
         if(root==null){
             root = new TreeNode(val);
-           return root;
+            return root;
         }
+        
         while(root!=null){
+           System.out.println(root.val);
             if(root.val>val){
                 // move to the left
-                 tn = root;
-                 left=0;
-                 root = root.left;
-                
+                //  tn = root;
+                left=0;
+                if(root.left==null){
+                    root.left= new TreeNode(val);
+                    break;
+                }else{
+                     root = root.left;
+                }   
             }else{
                 //move to the right
-                 tn = root;
-                left =1;
-                 root = root.right;
+                //tn = root;
+                left =1;   
+                if(root.right==null){
+                    root.right= new TreeNode(val);
+                     break;
+                }else{
+                    root = root.right;
+                }    
             }
          }
-        if(left==0){
-            tn.left = new TreeNode(val);
-        }else if(left==1){
-            tn.right = new TreeNode(val); 
-        }
+        //Attaching the new node
+        // if(left==0){
+        //     tn.left = new TreeNode(val);
+        // }else if(left==1){
+        //     tn.right = new TreeNode(val); 
+        // }
         
         return old;   
         
