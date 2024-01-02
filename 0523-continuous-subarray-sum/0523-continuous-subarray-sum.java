@@ -22,9 +22,7 @@ class Solution {
                     return true;
                 }
             }
-            
             map.putIfAbsent(check, i);
-            
             presum = presum + nums[i];
         }
 
