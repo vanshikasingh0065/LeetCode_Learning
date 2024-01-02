@@ -18,7 +18,7 @@ class Solution {
            
            if(map.containsKey(check)){
                 int last_index = map.get(check);
-                if(i - last_index >= 2) {
+                if(i - last_index > 1) {
                     return true;
                 }
             }
