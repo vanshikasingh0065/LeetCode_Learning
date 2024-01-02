@@ -14,7 +14,7 @@ class Solution {
 
            //add presum%k  in the hashmap
            int check = (presum+nums[i])%k;
-           System.out.println(check);
+           //System.out.println(check);
            
            if(map.containsKey(check)){
                 int last_index = map.get(check);
