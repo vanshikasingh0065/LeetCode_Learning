@@ -17,6 +17,7 @@ class Solution {
             }
         }
         
+        //All the other brackets that were left, were removed
          while(!stack.isEmpty()){
             sb.deleteCharAt(stack.pop());
         }
