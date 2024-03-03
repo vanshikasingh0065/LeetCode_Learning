@@ -32,6 +32,7 @@ class Solution {
             // no mirror
         }
 
+        //left of Left and Right of right should be same and left of right and right of left should be same
         return (left.val == right.val) && isMirror(left.left, right.right) && isMirror(left.right, right.left);
     }
 }
