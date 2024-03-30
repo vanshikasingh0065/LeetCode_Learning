@@ -6,7 +6,8 @@ class Solution {
             int k = target-nums[i];
             
             if(map.containsKey(k)){
-                 return new int[] { map.get(k), i };
+                 return new int[] { 
+                     map.get(k), i };
             }else{
                 map.put(nums[i],i);
             }
