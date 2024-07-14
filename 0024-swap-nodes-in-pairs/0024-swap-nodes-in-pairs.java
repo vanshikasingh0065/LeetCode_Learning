@@ -20,6 +20,7 @@ class Solution {
         while(temp!=null){
             int val = temp.val;
             if(temp.next!=null){
+                //we swaped the nodes here
                temp.val = temp.next.val;
                 temp.next.val = val;
                 temp = temp.next;
