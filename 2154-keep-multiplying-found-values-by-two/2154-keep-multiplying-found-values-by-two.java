@@ -1,18 +1,12 @@
 class Solution {
     public int findFinalValue(int[] nums, int original) {
-        Arrays.sort(nums);
-        int chnage =0;
-        for(int i=0; i<nums.length; i++){
-            if(nums[i]==original){
-                chnage = nums[i]*2;
-            }
-            if(nums[i]==chnage){
-                 chnage = nums[i]*2;
-            }
+       Set<Integer> integers = new HashSet<>();
+        for(int i:nums){
+            integers.add(i);
         }
-        if(chnage ==0){
-            return original;
+        while(integers.contains(original)){
+            original=original*2;
         }
-        return chnage;
+        return original;
     }
 }
