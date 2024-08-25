@@ -1,32 +1,36 @@
 /**
  * Definition for singly-linked list.
  * public class ListNode {
- *     int val;
- *     ListNode next;
- *     ListNode() {}
- *     ListNode(int val) { this.val = val; }
- *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+ * int val;
+ * ListNode next;
+ * ListNode() {}
+ * ListNode(int val) { this.val = val; }
+ * ListNode(int val, ListNode next) { this.val = val; this.next = next; }
  * }
  */
 class Solution {
     public ListNode middleNode(ListNode head) {
-        int count=0;
-        ListNode temp=head;
-
-        while(temp!=null){
+        // first we find the length of the linkedlist
+        ListNode ans = new ListNode(0);
+        ListNode dummy = ans;
+        int count = 0;
+        ListNode temp = head;
+        while (temp != null) {
+            temp = temp.next;
             count++;
-            temp=temp.next;
         }
+        
 
-        int MidIndex=count/2 + 1;
-        temp=head;
+        int check = count/2+1;
+        temp = head;
         while(temp!=null){
-            MidIndex--;
-            if(MidIndex==0){
+            //we are refucung the temp here
+            check--;
+            if(check==0){
                 break;
             }
-            temp=temp.next;
-            //in the last where temp is standing
+            temp = temp.next;
+            
         }
 
         return temp;
