@@ -9,40 +9,44 @@
  * }
  */
 class Solution {
-    public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
+    public ListNode mergeTwoLists(ListNode list1, ListNode list2) {
         
-        //here merging the 2 sorted lists.
-        if(l1 == null){
-            return l2;
+        if (list1 == null) {
+            return list2;
         }
-        if(l2 == null){
-            return l1;
+        if (list2 == null) {
+            return list1;
         }
-        ListNode head = new ListNode();
-        ListNode curr = head;
-        while(l1!=null && l2!=null){
-            if(l1.val<l2.val){
-                curr.next = l1;
-                l1 = l1.next;
-            }else{
-                curr.next = l2;
-                l2=l2.next;
+        ListNode curr = null;
+        ListNode head = null;
+
+        while (list1 != null && list2 != null) {
+            if (list1.val <= list2.val) {
+                if ((curr == null) && (head == null)) {
+                    curr = list1;
+                    head = list1;
+                } else {
+                    curr.next = list1;
+                    curr = curr.next;
+                }
+                list1 = list1.next;
+            } else {
+                if ((curr == null) && (head == null)) {
+                    curr = list2;
+                    head = list2;
+                } else {
+                    curr.next = list2;
+                    curr = curr.next;
+                }
+                list2 = list2.next;
             }
-            curr = curr.next;
+        }
+        if (list2 != null) {
+            curr.next = list2;
+        } else if (list1 != null) {
+            curr.next = list1;
         }
 
-        curr.next = l1!=null? l1: l2;
-    //     ListNode mergeHead;
-    //     if(l1.val<l2.val){
-    //         mergeHead = l1;
-    //         mergeHead.next = mergeTwoLists(l1.next, l2);
-    //     }else{
-    //         mergeHead = l2;
-    //         mergeHead.next = mergeTwoLists(l1, l2.next);
-    //     }
-
-    //     return mergeHead;
-    // }
-    return head.next;
+        return head;
     }
 }
